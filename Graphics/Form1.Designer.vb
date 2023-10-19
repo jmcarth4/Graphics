@@ -27,7 +27,10 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DrawButton = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.AmpButton = New System.Windows.Forms.Button()
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'QuitButton
@@ -64,22 +67,45 @@ Partial Class Form1
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1
         '
+        'AmpButton
+        '
+        Me.AmpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.AmpButton.Location = New System.Drawing.Point(492, 560)
+        Me.AmpButton.Name = "AmpButton"
+        Me.AmpButton.Size = New System.Drawing.Size(151, 57)
+        Me.AmpButton.TabIndex = 4
+        Me.AmpButton.Text = "Amplitude"
+        Me.AmpButton.UseVisualStyleBackColor = True
+        '
+        'TrackBar1
+        '
+        Me.TrackBar1.Location = New System.Drawing.Point(755, 568)
+        Me.TrackBar1.Name = "TrackBar1"
+        Me.TrackBar1.Size = New System.Drawing.Size(104, 69)
+        Me.TrackBar1.TabIndex = 5
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1164, 653)
+        Me.Controls.Add(Me.TrackBar1)
+        Me.Controls.Add(Me.AmpButton)
         Me.Controls.Add(Me.DrawButton)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.QuitButton)
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents QuitButton As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents DrawButton As Button
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents AmpButton As Button
+    Friend WithEvents TrackBar1 As TrackBar
 End Class
