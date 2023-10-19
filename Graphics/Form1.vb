@@ -7,6 +7,14 @@
     Public timerloop As Integer
     Public width1 As Integer
     Public width2 As Integer
+    Public width3 As Integer
+    Public width4 As Integer
+    Public width5 As Integer
+    Public width6 As Integer
+    Public width7 As Integer
+    Public width8 As Integer
+    Public width9 As Integer
+    'Public width10 As Integer
     Public vPens As Pen
 
     Sub draw()
@@ -31,15 +39,10 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
         If timerloop > 1000 Then
-            'newX = 0
             draw()
-            'Timer1.Enabled = False
-
             timerloop = 0
-            'newX = 1
-        ElseIf timerloop = width2 Or timerloop = width1 Then
+        ElseIf timerloop = width2 Or timerloop = width1 Or timerloop = width3 Or timerloop = width4 Then
             vPens = Pens.Blue
-            'PictureBox1.CreateGraphics.DrawLine(Pens.Purple, newX + 1, 0, newX + 1, PictureBox1.Height)
             draw()
         ElseIf timerloop = 1 Then
             lastX = 0
@@ -61,6 +64,12 @@
         timerloop = 1
         width1 = PictureBox1.Width / 2
         width2 = PictureBox1.Width * 0.6
-
+        width3 = PictureBox1.Width * 0.4
+        width4 = PictureBox1.Width * 0.1
+        width5 = PictureBox1.Width * 0.2
+        width6 = PictureBox1.Width * 0.3
+        width7 = PictureBox1.Width * 0.7
+        width8 = PictureBox1.Width * 0.8
+        width9 = PictureBox1.Width * 0.9
     End Sub
 End Class
