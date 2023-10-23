@@ -41,7 +41,9 @@
         If timerloop > 1000 Then
             draw()
             timerloop = 0
-        ElseIf timerloop = width2 Or timerloop = width1 Or timerloop = width3 Or timerloop = width4 Then
+        ElseIf timerloop = width2 Or timerloop = width1 Or timerloop = width3 Or timerloop = width4 Or
+            timerloop = width5 Or timerloop = width6 Or timerloop = width7 Or timerloop = width8 Or
+             timerloop = width9 Then
             vPens = Pens.Blue
             draw()
         ElseIf timerloop = 1 Then
@@ -62,12 +64,12 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         timerloop = 1
-        width1 = PictureBox1.Width / 2
-        width2 = PictureBox1.Width * 0.6
-        width3 = PictureBox1.Width * 0.4
-        width4 = PictureBox1.Width * 0.1
-        width5 = PictureBox1.Width * 0.2
-        width6 = PictureBox1.Width * 0.3
+        width1 = PictureBox1.Width * 0.1
+        width2 = PictureBox1.Width * 0.2
+        width3 = PictureBox1.Width * 0.3
+        width4 = PictureBox1.Width * 0.4
+        width5 = PictureBox1.Width * 0.5
+        width6 = PictureBox1.Width * 0.6
         width7 = PictureBox1.Width * 0.7
         width8 = PictureBox1.Width * 0.8
         width9 = PictureBox1.Width * 0.9
