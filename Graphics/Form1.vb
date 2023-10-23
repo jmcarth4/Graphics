@@ -31,6 +31,35 @@
         lastY = newY
     End Sub
 
+    'Draw horizontal division every 12.5 % of picture box hieght (7 markers)
+    Sub HDiv()
+        Dim hieght1 As Integer
+        Dim hieght2 As Integer
+        Dim hieght3 As Integer
+        Dim hieght4 As Integer
+        Dim hieght5 As Integer
+        Dim hieght6 As Integer
+        Dim hieght7 As Integer
+
+
+        hieght1 = PictureBox1.Height * 0.125
+        hieght2 = PictureBox1.Height * 0.25
+        hieght3 = PictureBox1.Height * 0.375
+        hieght4 = PictureBox1.Height * 0.5
+        hieght5 = PictureBox1.Height * 0.625
+        hieght6 = PictureBox1.Height * 0.75
+        hieght7 = PictureBox1.Height * 0.875
+
+        vPens = Pens.Blue
+
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght1, PictureBox1.Width, hieght1)
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght2, PictureBox1.Width, hieght2)
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght3, PictureBox1.Width, hieght3)
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght4, PictureBox1.Width, hieght4)
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght5, PictureBox1.Width, hieght5)
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght6, PictureBox1.Width, hieght6)
+        PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght7, PictureBox1.Width, hieght7)
+    End Sub
 
     Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
         Timer1.Enabled = True
@@ -40,6 +69,7 @@
 
         If timerloop > 1000 Then
             draw()
+            HDiv()
             timerloop = 0
         ElseIf timerloop = width2 Or timerloop = width1 Or timerloop = width3 Or timerloop = width4 Or
             timerloop = width5 Or timerloop = width6 Or timerloop = width7 Or timerloop = width8 Or
@@ -50,9 +80,11 @@
             lastX = 0
             vPens = Pens.Black
             draw()
+            HDiv()
         Else
             vPens = Pens.Black
             draw()
+            HDiv()
 
         End If
         timerloop += 1
