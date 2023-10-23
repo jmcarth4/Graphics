@@ -60,6 +60,14 @@
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght6, PictureBox1.Width, hieght6)
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght7, PictureBox1.Width, hieght7)
     End Sub
+    Sub VRef()
+        Dim gndHieght As Integer
+
+        gndHieght = GndTrackBar.Value
+        TrackBarValueLabel.Text = GndTrackBar.Value
+        vPens = Pens.Orange
+        PictureBox1.CreateGraphics.DrawLine(vPens, 0, gndHieght, PictureBox1.Width, gndHieght)
+    End Sub
 
     Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
         Timer1.Enabled = True
@@ -70,21 +78,28 @@
         If timerloop > 1000 Then
             draw()
             HDiv()
+            ' VRef()
             timerloop = 0
         ElseIf timerloop = width2 Or timerloop = width1 Or timerloop = width3 Or timerloop = width4 Or
             timerloop = width5 Or timerloop = width6 Or timerloop = width7 Or timerloop = width8 Or
              timerloop = width9 Then
             vPens = Pens.Blue
             draw()
+            HDiv()
+            ' VRef()
         ElseIf timerloop = 1 Then
             lastX = 0
             vPens = Pens.Black
             draw()
             HDiv()
+            ' VRef()
         Else
             vPens = Pens.Black
+
             draw()
+            VRef()
             HDiv()
+
 
         End If
         timerloop += 1
@@ -105,5 +120,9 @@
         width7 = PictureBox1.Width * 0.7
         width8 = PictureBox1.Width * 0.8
         width9 = PictureBox1.Width * 0.9
+        GndTrackBar.Value = 215
+        GndTrackBar.Maximum = PictureBox1.Height
     End Sub
+
+
 End Class
