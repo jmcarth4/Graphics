@@ -14,21 +14,30 @@
     Public width7 As Integer
     Public width8 As Integer
     Public width9 As Integer
-    'Public width10 As Integer
+    Dim gndHieght As Integer
     Public vPens As Pen
 
     Sub draw()
+        'Dim gndHieght As Integer
         'width = 500 'PictureBox1.Width
 
         maxAmplidue = 100   ' adjust with button later
-        newY = (Rnd() * maxAmplidue) + (PictureBox1.Height / 2) - (maxAmplidue / 2)
+        'newY = (Rnd() * maxAmplidue) + (PictureBox1.Height / 2) - (maxAmplidue / 2)
+        newY = (Rnd() * maxAmplidue) + (gndHieght) '-(maxAmplidue / 2)
         newX = timerloop
         'PictureBox1.CreateGraphics.DrawLine(Pens.White, 100, 100, newX, newY)
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, 0, newX + 1, PictureBox1.Height)
         PictureBox1.CreateGraphics.DrawLine(Pens.White, lastX, lastY, newX, newY)
+
         'PictureBox1.CreateGraphics.DrawLine(Pens.Blue, 100, 100, timerloop, 200)
         lastX = newX
         lastY = newY
+
+
+
+        gndHieght = GndTrackBar.Value
+        TrackBarValueLabel.Text = GndTrackBar.Value
+        vPens = Pens.Orange
     End Sub
 
     'Draw horizontal division every 12.5 % of picture box hieght (7 markers)
@@ -97,7 +106,7 @@
             vPens = Pens.Black
 
             draw()
-            VRef()
+            ' VRef()
             HDiv()
 
 

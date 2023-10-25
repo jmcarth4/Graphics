@@ -33,6 +33,8 @@ Partial Class Form1
         Me.TrackBarValueLabel = New System.Windows.Forms.Label()
         Me.TDLabel = New System.Windows.Forms.Label()
         Me.VDLabel = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GndTrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -59,7 +61,7 @@ Partial Class Form1
         'DrawButton
         '
         Me.DrawButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DrawButton.Location = New System.Drawing.Point(304, 569)
+        Me.DrawButton.Location = New System.Drawing.Point(20, 555)
         Me.DrawButton.Name = "DrawButton"
         Me.DrawButton.Size = New System.Drawing.Size(74, 48)
         Me.DrawButton.TabIndex = 3
@@ -74,16 +76,16 @@ Partial Class Form1
         'AmpButton
         '
         Me.AmpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.AmpButton.Location = New System.Drawing.Point(492, 560)
+        Me.AmpButton.Location = New System.Drawing.Point(1038, 324)
         Me.AmpButton.Name = "AmpButton"
-        Me.AmpButton.Size = New System.Drawing.Size(151, 57)
+        Me.AmpButton.Size = New System.Drawing.Size(99, 44)
         Me.AmpButton.TabIndex = 4
         Me.AmpButton.Text = "Amplitude"
         Me.AmpButton.UseVisualStyleBackColor = True
         '
         'GndTrackBar
         '
-        Me.GndTrackBar.Location = New System.Drawing.Point(649, 561)
+        Me.GndTrackBar.Location = New System.Drawing.Point(633, 555)
         Me.GndTrackBar.Maximum = 500
         Me.GndTrackBar.Name = "GndTrackBar"
         Me.GndTrackBar.Size = New System.Drawing.Size(181, 69)
@@ -125,11 +127,31 @@ Partial Class Form1
         Me.VDLabel.TabIndex = 9
         Me.VDLabel.Text = "Volts / Division"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1038, 383)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(99, 44)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(491, 583)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(136, 20)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Voltage reference"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1164, 653)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.VDLabel)
         Me.Controls.Add(Me.TDLabel)
         Me.Controls.Add(Me.TrackBarValueLabel)
@@ -157,4 +179,6 @@ Partial Class Form1
     Friend WithEvents TrackBarValueLabel As Label
     Friend WithEvents TDLabel As Label
     Friend WithEvents VDLabel As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label2 As Label
 End Class
