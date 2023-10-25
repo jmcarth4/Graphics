@@ -18,26 +18,31 @@
     Public vPens As Pen
 
     Sub draw()
-        'Dim gndHieght As Integer
-        'width = 500 'PictureBox1.Width
 
-        maxAmplidue = 100   ' adjust with button later
+
+        gndHieght = GndTrackBar.Value
+        VRefValueLabel.Text = GndTrackBar.Value
+
+        maxAmplidue = AmpTrackBar.Value
+        MaxAmVLabel.Text = AmpTrackBar.Value
+
         'newY = (Rnd() * maxAmplidue) + (PictureBox1.Height / 2) - (maxAmplidue / 2)
-        newY = (Rnd() * maxAmplidue) + (gndHieght) '-(maxAmplidue / 2)
+        'newY = (Rnd() * maxAmplidue) + (gndHieght) '- (maxAmplidue / 2)
+        newY = (Rnd() * maxAmplidue) + gndHieght - (maxAmplidue / 2)
         newX = timerloop
+
         'PictureBox1.CreateGraphics.DrawLine(Pens.White, 100, 100, newX, newY)
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, 0, newX + 1, PictureBox1.Height)
         PictureBox1.CreateGraphics.DrawLine(Pens.White, lastX, lastY, newX, newY)
 
         'PictureBox1.CreateGraphics.DrawLine(Pens.Blue, 100, 100, timerloop, 200)
+
+
+
         lastX = newX
         lastY = newY
 
 
-
-        gndHieght = GndTrackBar.Value
-        TrackBarValueLabel.Text = GndTrackBar.Value
-        vPens = Pens.Orange
     End Sub
 
     'Draw horizontal division every 12.5 % of picture box hieght (7 markers)
@@ -69,13 +74,25 @@
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght6, PictureBox1.Width, hieght6)
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght7, PictureBox1.Width, hieght7)
     End Sub
-    Sub VRef()
-        Dim gndHieght As Integer
+    'Sub VRef()
+    '    Dim gndHieght As Integer
 
-        gndHieght = GndTrackBar.Value
-        TrackBarValueLabel.Text = GndTrackBar.Value
-        vPens = Pens.Orange
-        PictureBox1.CreateGraphics.DrawLine(vPens, 0, gndHieght, PictureBox1.Width, gndHieght)
+    '    gndHieght = GndTrackBar.Value
+    '    TrackBarValueLabel.Text = GndTrackBar.Value
+    '    vPens = Pens.Orange
+    '    PictureBox1.CreateGraphics.DrawLine(vPens, 0, gndHieght, PictureBox1.Width, gndHieght)
+    'End Sub
+
+    Private Sub UpButton_Click(sender As Object, e As EventArgs) Handles UpButton.Click
+        If maxAmplidue > 1000 Then
+            maxAmplidue = +100
+        ElseIf maxAmplidue = 1000 Then
+
+        End If
+    End Sub
+
+    Private Sub DownButton_Click(sender As Object, e As EventArgs) Handles DownButton.Click
+
     End Sub
 
     Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
@@ -119,6 +136,7 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         timerloop = 1
         width1 = PictureBox1.Width * 0.1
         width2 = PictureBox1.Width * 0.2
@@ -129,8 +147,9 @@
         width7 = PictureBox1.Width * 0.7
         width8 = PictureBox1.Width * 0.8
         width9 = PictureBox1.Width * 0.9
-        GndTrackBar.Value = 215
+        GndTrackBar.Value = 160
         GndTrackBar.Maximum = PictureBox1.Height
+        AmpTrackBar.Value = 100
     End Sub
 
 

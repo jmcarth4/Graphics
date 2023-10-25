@@ -27,16 +27,19 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DrawButton = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.AmpButton = New System.Windows.Forms.Button()
+        Me.UpButton = New System.Windows.Forms.Button()
         Me.GndTrackBar = New System.Windows.Forms.TrackBar()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TrackBarValueLabel = New System.Windows.Forms.Label()
+        Me.VRefValueLabel = New System.Windows.Forms.Label()
         Me.TDLabel = New System.Windows.Forms.Label()
         Me.VDLabel = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.DownButton = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.AmpTrackBar = New System.Windows.Forms.TrackBar()
+        Me.MaxAmVLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GndTrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AmpTrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'QuitButton
@@ -73,19 +76,19 @@ Partial Class Form1
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1
         '
-        'AmpButton
+        'UpButton
         '
-        Me.AmpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.AmpButton.Location = New System.Drawing.Point(1038, 324)
-        Me.AmpButton.Name = "AmpButton"
-        Me.AmpButton.Size = New System.Drawing.Size(99, 44)
-        Me.AmpButton.TabIndex = 4
-        Me.AmpButton.Text = "Amplitude"
-        Me.AmpButton.UseVisualStyleBackColor = True
+        Me.UpButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.UpButton.Location = New System.Drawing.Point(1045, 74)
+        Me.UpButton.Name = "UpButton"
+        Me.UpButton.Size = New System.Drawing.Size(107, 65)
+        Me.UpButton.TabIndex = 4
+        Me.UpButton.Text = "Increase Amplitude"
+        Me.UpButton.UseVisualStyleBackColor = True
         '
         'GndTrackBar
         '
-        Me.GndTrackBar.Location = New System.Drawing.Point(633, 555)
+        Me.GndTrackBar.Location = New System.Drawing.Point(653, 555)
         Me.GndTrackBar.Maximum = 500
         Me.GndTrackBar.Name = "GndTrackBar"
         Me.GndTrackBar.Size = New System.Drawing.Size(181, 69)
@@ -94,20 +97,20 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(708, 525)
+        Me.Label1.Location = New System.Drawing.Point(706, 532)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(143, 20)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Voltage Reference"
         '
-        'TrackBarValueLabel
+        'VRefValueLabel
         '
-        Me.TrackBarValueLabel.AutoSize = True
-        Me.TrackBarValueLabel.Location = New System.Drawing.Point(857, 583)
-        Me.TrackBarValueLabel.Name = "TrackBarValueLabel"
-        Me.TrackBarValueLabel.Size = New System.Drawing.Size(126, 20)
-        Me.TrackBarValueLabel.TabIndex = 7
-        Me.TrackBarValueLabel.Text = "tracker bar value"
+        Me.VRefValueLabel.AutoSize = True
+        Me.VRefValueLabel.Location = New System.Drawing.Point(857, 583)
+        Me.VRefValueLabel.Name = "VRefValueLabel"
+        Me.VRefValueLabel.Size = New System.Drawing.Size(99, 20)
+        Me.VRefValueLabel.TabIndex = 7
+        Me.VRefValueLabel.Text = "RefVolValue"
         '
         'TDLabel
         '
@@ -127,37 +130,56 @@ Partial Class Form1
         Me.VDLabel.TabIndex = 9
         Me.VDLabel.Text = "Volts / Division"
         '
-        'Button1
+        'DownButton
         '
-        Me.Button1.Location = New System.Drawing.Point(1038, 383)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(99, 44)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.DownButton.Location = New System.Drawing.Point(1053, 174)
+        Me.DownButton.Name = "DownButton"
+        Me.DownButton.Size = New System.Drawing.Size(99, 64)
+        Me.DownButton.TabIndex = 10
+        Me.DownButton.Text = "Decrease Amplitude"
+        Me.DownButton.UseVisualStyleBackColor = True
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(491, 583)
+        Me.Label2.Location = New System.Drawing.Point(223, 532)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(136, 20)
+        Me.Label2.Size = New System.Drawing.Size(80, 20)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Voltage reference"
+        Me.Label2.Text = "Amplitude"
+        '
+        'AmpTrackBar
+        '
+        Me.AmpTrackBar.Location = New System.Drawing.Point(173, 572)
+        Me.AmpTrackBar.Maximum = 1000
+        Me.AmpTrackBar.Name = "AmpTrackBar"
+        Me.AmpTrackBar.Size = New System.Drawing.Size(181, 69)
+        Me.AmpTrackBar.TabIndex = 12
+        '
+        'MaxAmVLabel
+        '
+        Me.MaxAmVLabel.AutoSize = True
+        Me.MaxAmVLabel.Location = New System.Drawing.Point(394, 583)
+        Me.MaxAmVLabel.Name = "MaxAmVLabel"
+        Me.MaxAmVLabel.Size = New System.Drawing.Size(112, 20)
+        Me.MaxAmVLabel.TabIndex = 13
+        Me.MaxAmVLabel.Text = "MaxAmpValue"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1164, 653)
+        Me.Controls.Add(Me.MaxAmVLabel)
+        Me.Controls.Add(Me.AmpTrackBar)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.DownButton)
         Me.Controls.Add(Me.VDLabel)
         Me.Controls.Add(Me.TDLabel)
-        Me.Controls.Add(Me.TrackBarValueLabel)
+        Me.Controls.Add(Me.VRefValueLabel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GndTrackBar)
-        Me.Controls.Add(Me.AmpButton)
+        Me.Controls.Add(Me.UpButton)
         Me.Controls.Add(Me.DrawButton)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.QuitButton)
@@ -165,6 +187,7 @@ Partial Class Form1
         Me.Text = "Form1"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GndTrackBar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AmpTrackBar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -173,12 +196,14 @@ Partial Class Form1
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents DrawButton As Button
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents AmpButton As Button
+    Friend WithEvents UpButton As Button
     Friend WithEvents GndTrackBar As TrackBar
     Friend WithEvents Label1 As Label
-    Friend WithEvents TrackBarValueLabel As Label
+    Friend WithEvents VRefValueLabel As Label
     Friend WithEvents TDLabel As Label
     Friend WithEvents VDLabel As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents DownButton As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents AmpTrackBar As TrackBar
+    Friend WithEvents MaxAmVLabel As Label
 End Class
