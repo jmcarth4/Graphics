@@ -1,4 +1,5 @@
 ﻿Public Class Form1
+
     Public newX As Single
     Public newY As Single
     Public maxAmplidue As Integer
@@ -74,28 +75,7 @@
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght6, PictureBox1.Width, hieght6)
         PictureBox1.CreateGraphics.DrawLine(vPens, newX + 1, hieght7, PictureBox1.Width, hieght7)
     End Sub
-    'Sub VRef()
-    '    Dim gndHieght As Integer
-
-    '    gndHieght = GndTrackBar.Value
-    '    TrackBarValueLabel.Text = GndTrackBar.Value
-    '    vPens = Pens.Orange
-    '    PictureBox1.CreateGraphics.DrawLine(vPens, 0, gndHieght, PictureBox1.Width, gndHieght)
-    'End Sub
-
-    Private Sub UpButton_Click(sender As Object, e As EventArgs) Handles UpButton.Click
-        If maxAmplidue > 1000 Then
-            maxAmplidue = +100
-        ElseIf maxAmplidue = 1000 Then
-
-        End If
-    End Sub
-
-    Private Sub DownButton_Click(sender As Object, e As EventArgs) Handles DownButton.Click
-
-    End Sub
-
-    Private Sub DrawButton_Click(sender As Object, e As EventArgs) Handles DrawButton.Click
+    Private Sub DrawButton_Click(sender As Object, e As EventArgs)
         Timer1.Enabled = True
 
     End Sub
@@ -104,7 +84,7 @@
         If timerloop > 1000 Then
             draw()
             HDiv()
-            ' VRef()
+
             timerloop = 0
         ElseIf timerloop = width2 Or timerloop = width1 Or timerloop = width3 Or timerloop = width4 Or
             timerloop = width5 Or timerloop = width6 Or timerloop = width7 Or timerloop = width8 Or
@@ -112,18 +92,18 @@
             vPens = Pens.Blue
             draw()
             HDiv()
-            ' VRef()
+
         ElseIf timerloop = 1 Then
             lastX = 0
             vPens = Pens.Black
             draw()
             HDiv()
-            ' VRef()
+
         Else
             vPens = Pens.Black
 
             draw()
-            ' VRef()
+
             HDiv()
 
 
@@ -134,6 +114,8 @@
     Private Sub QuitButton_Click(sender As Object, e As EventArgs) Handles QuitButton.Click
         Me.Close()
     End Sub
+    'Loads serial settings when load the form
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -152,5 +134,6 @@
         AmpTrackBar.Value = 100
     End Sub
 
-
 End Class
+
+
